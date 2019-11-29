@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo "Hello Jenkins"'
             }
         }
-        stage('BuildMore'){
+        stage('BuildAgain'){
             steps{
                 sh '''
                     echo "MultiLine shell steps"
