@@ -88,14 +88,7 @@
     <build>
         <finalName>MyCICDApp</finalName>
         <plugins>
-            <!-- http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html -->
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.4.12.v20180830</version>
-            </plugin>
-
-            <!-- Default is too old, update to latest to run the latest Spring 5 + jUnit 5 -->
+             <!-- Default is too old, update to latest to run the latest Spring 5 + jUnit 5 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>

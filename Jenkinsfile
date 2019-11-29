@@ -1,17 +1,24 @@
 pipeline {
-    agent any 
+    agent any
     stages {
-        stage('Build'){
+        stage('Build') {
             steps {
-                sh 'echo "Hello Jenkins"'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('BuildAgain'){
-            steps{
-                sh '''
-                    echo "MultiLine shell steps"
-                    ls -lah
-                    '''
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+        stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
             }
         }
     }
