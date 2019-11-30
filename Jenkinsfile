@@ -5,8 +5,8 @@ pipeline {
             steps {
                 rtServer (
                     id: "ARTIFACTORY_SERVER",
-                    url: SERVER_URL,
-                    credentialsId: CREDENTIALS
+                    url: http://10.0.0.17:8081/artifactory
+                    credentialsId: admin/password
                 )
 
                 rtMavenDeployer (
@@ -28,7 +28,7 @@ pipeline {
         stage ('Exec Maven') {
             steps {
                 rtMavenRun (
-                    tool: MAVEN_TOOL, // Tool name from Jenkins configuration
+                    tool: mymvn, // Tool name from Jenkins configuration
                     pom: 'MyCICDApp/pom.xml',
                     goals: 'clean install',
                     deployerId: "MAVEN_DEPLOYER",
