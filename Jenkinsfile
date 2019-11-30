@@ -1,12 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage ('Clone') {
-            steps {
-                git branch: 'develop', url: "https://github.com/letspeak/MyCICDApp.git"
-            }
-        }
-
         stage ('Artifactory configuration') {
             steps {
                 rtServer (
